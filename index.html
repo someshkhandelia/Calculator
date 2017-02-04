@@ -58,7 +58,28 @@
 			setTextMethod("9");
 			flag1=1;	
 		});
-		
+		$("#zerozero").click(function(){
+			setTextMethod("00");
+			flag1=1;	
+		});
+		$("#decimal").click(function(){
+			setTextMethod(".");	
+		});
+		$("#clear").click(function(){
+			val=$("#display").val();
+			var i;
+			var temp;
+			//alert(val[0]);
+			//alert(val.length);
+			if(val.length==1||val.length==0){
+				$("#display").text("");
+			}
+			else{
+				temp=val.substr(0,val.length-1);
+				$("#display").text(temp);
+			}
+			
+		});
 ////////////////plus operator////////////////////////////////////////
 		$("#plus").click(function(){
 			if(flag1==1&&sumflag==0&&subflag==0&&mulflag==0&&divflag==0){
@@ -207,12 +228,13 @@
 				<button id="nine">9</button>
 			</td>
 			<td  align=center>
-				<button class="operator" id="equals">=</button>
+				<button  id="zerozero">00</button>
 			</td>
 
 			<td  align=center>
-				<button class="operator" id="plus">+</button>
+				<button id="decimal">.</button>
 			</td>
+			
 		</tr>
 		<tr>
 			<td align=center>
@@ -225,6 +247,21 @@
 				<button class="operator" id="divide">/</button>
 			</td>
 			
+		</tr>
+
+		<tr>
+			<td  align=center>
+				<button class="operator" id="clear">DEL</button>
+			</td>
+
+			
+			<td  align=center>
+				<button class="operator" id="equals">=</button>
+			</td>
+
+			<td  align=center>
+				<button class="operator" id="plus">+</button>
+			</td>
 		</tr>
 	</table>
 	<script type="text/javascript">
