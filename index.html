@@ -8,7 +8,7 @@
 	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 
 	<script type="text/javascript">
-	var flag1=0,flag2=0,flag3=0;
+	var flag1=0,sumflag=0,subflag=0,mulflag=0,divflag=0;
 	var val_int_1,val_int_2;
 	var val;
 	var result;
@@ -19,11 +19,8 @@
 
 		
 		$("#zero").click(function(){
-			
-				setTextMethod("0");
-				flag1=1;
-		
-				
+			setTextMethod("0");
+			flag1=1;
 		});
 		$("#one").click(function(){
 			setTextMethod("1");	
@@ -64,149 +61,96 @@
 		
 ////////////////plus operator////////////////////////////////////////
 		$("#plus").click(function(){
-			if(flag1==1&&flag2!=1){
-				//setTextMethod("+");
-				
+			if(flag1==1&&sumflag==0&&subflag==0&&mulflag==0&&divflag==0){
 				val=$("#display").val();
-				val_int_1=parseInt(val);
-
+				val_int_1=parseFloat(val);
 				$("#display").text("");
-				flag2=1;
+				sumflag=1;
+				flag1=0;
 			}
-			else if(flag2==1){
-				//alert("second");
-				 val=$("#display").val();
-				 if(val==""){
-
-				 	result=val_int_1;
-
-				 }
-				 else{
-				 	val_int_2=parseInt(val);
-				 	result=val_int_1+val_int_2;
-				 	
-				 }
-
-				 //result_text=toString(result);
-
-				 $("#display").text(result);
-				 flag2=0;
-				
-			}
+			
 				
 		});
 ///////////////////////////////minus operator////////////////////////////////////////////////
 		$("#minus").click(function(){
-			if(flag1==1&&flag2!=1){
-				//setTextMethod("+");
-				
+			if(flag1==1&&sumflag==0&&subflag==0&&mulflag==0&&divflag==0){
 				val=$("#display").val();
-				val_int_1=parseInt(val);
-
+				val_int_1=parseFloat(val);
 				$("#display").text("");
-				flag2=1;
-			}
-			else if(flag2==1){
-				//alert("second");
-				 val=$("#display").val();
-				 if(val==""){
-
-				 	result=val_int_1;
-
-				 }
-				 else{
-				 	val_int_2=parseInt(val);
-				 	result=val_int_1-val_int_2;
-				 	
-				 }
-
-				 //result_text=toString(result);
-
-				 $("#display").text(result);
-				 flag2=0;
-				
+				subflag=1;
+				flag1=0;
 			}
 		});
 ////////////////////////////multiply operator//////////////////////////////////////////////
 		$("#multiply").click(function(){
-			if(flag1==1&&flag2!=1){
-				//setTextMethod("+");
-				
+			if(flag1==1&&sumflag==0&&subflag==0&&mulflag==0&&divflag==0){
 				val=$("#display").val();
-				val_int_1=parseInt(val);
-
+				val_int_1=parseFloat(val);
 				$("#display").text("");
-				flag2=1;
-			}
-			else if(flag2==1){
-				//alert("second");
-				 val=$("#display").val();
-				 if(val==""){
-
-				 	result=val_int_1;
-
-				 }
-				 else{
-				 	val_int_2=parseInt(val);
-				 	result=val_int_1*val_int_2;
-				 	
-				 }
-
-				 //result_text=toString(result);
-
-				 $("#display").text(result);
-				 flag2=0;
-				
+				mulflag=1;
+				flag1=0;
 			}
 		});
 ////////////////////////////////division operator/////////////////////////////////////////
 		$("#divide").click(function(){
-			if(flag1==1&&flag2!=1){
-				//setTextMethod("+");
-				
+			if(flag1==1&&sumflag==0&&subflag==0&&mulflag==0&&divflag==0){
 				val=$("#display").val();
-				val_int_1=parseInt(val);
-
+				val_int_1=parseFloat(val);
 				$("#display").text("");
-				flag2=1;
-			}
-			else if(flag2==1){
-				//alert("second");
-				 val=$("#display").val();
-				 if(val==""){
-
-				 	result=val_int_1;
-
-				 }
-				 else{
-				 	val_int_2=parseInt(val);
-				 	result=val_int_1/val_int_2;
-				 	
-				 }
-
-				 //result_text=toString(result);
-
-				 $("#display").text(result);
-				 flag2=0;
-				
+				divflag=1;
+				flag1=0;
 			}
 		});
-///////////////////////////////////////////////////////////////////////////////////////
-		
+///////////////////////////////////////equals operator////////////////////////////////////////////////
+		$("#equals").click(function(){
+			if(flag1==1&&sumflag==1){
+				val=$("#display").val();
+				val_int_2=parseFloat(val);
+				result=val_int_1+val_int_2;
+				$("#display").text(result);
+				sumflag=0;
+
+			}
+			else if(flag1==1&&subflag==1){
+				val=$("#display").val();
+				val_int_2=parseFloat(val);
+				result=val_int_1-val_int_2;
+				$("#display").text(result);
+				subflag=0;
+
+			}
+			else if(flag1==1&&mulflag==1){
+				val=$("#display").val();
+				val_int_2=parseFloat(val);
+				result=val_int_1*val_int_2;
+				$("#display").text(result);
+				mulflag=0;
+
+			}
+			if(flag1==1&&divflag==1){
+				val=$("#display").val();
+				val_int_2=parseFloat(val);
+				if(val_int_2==0){
+					$("#display").text("");
+					flag1=0;
+				}
+				else{
+					result=val_int_1/val_int_2;
+					$("#display").text(result);
+				}
+				
+				divflag=0;
+
+			}
+
+		});
 	
 	});
 	
 
 	function setTextMethod(x){
 		$("#display").append(x);
-		//alert("pressed 0!");
-		//var val=$("#display").val();
-		//alert(val);
-		/*if(flag2==0){
-			var val_int_1=parseInt(val);
-		}*/
 		
-
 	}
 
 	
