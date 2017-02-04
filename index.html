@@ -16,7 +16,7 @@
 	//flag1 signifies that an operand is there or not
 	$("document").ready(function(){
 		//$("#display").text("Enter expression");
-
+		$("#hiddencontent").hide();
 		
 		$("#zero").click(function(){
 			setTextMethod("0");
@@ -154,6 +154,8 @@
 				if(val_int_2==0){
 					$("#display").text("");
 					flag1=0;
+					$("#mytable").hide(1000,"swing");
+					$("#hiddencontent").show(1000);
 				}
 				else{
 					result=val_int_1/val_int_2;
@@ -163,6 +165,8 @@
 				divflag=0;
 
 			}
+
+			//$("#mytable").hide(1000,"swing");
 
 		});
 	
@@ -179,7 +183,9 @@
 </head>
 <body>
 	<p  align=center><b>A Simple Calculator</b></br>Only two operands' expressions supported at the moment! </p>
-	<table>
+	<p align=center>Try a division by 0 for some magic!</p>
+	<p id="hiddencontent" align=center><img src="img/smile.png"/></p>
+	<table id="mytable">
 		<tr>
 			<td colspan="3"><textarea id="display"></textarea></td>
 		</tr>
