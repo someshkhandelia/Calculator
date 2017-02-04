@@ -1,0 +1,19 @@
+table {
+	border: 1px solid black;
+	margin-left:auto;
+	margin-right:auto;
+	width:200px;
+	height:300px;
+	background-color:#6495ED;
+}
+
+tr{
+	border: 1px solid black;
+}
+td {
+	border: 1px solid black;
+}
+button {
+	width:100%;
+	height:100%;
+}
